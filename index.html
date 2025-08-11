@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3C Content Scheduler - Thread To Success</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>3C Content Scheduler</h1>
+            <p>Thread To Success - Content Management System</p>
+        </div>
 
+        <div class="main-card">
+            <div class="form-section">
+                <form id="contentForm">
+                    <!-- Character Profile Selection -->
+                    <div class="form-group">
+                        <label>Character Profile</label>
+                        <div class="character-profiles">
+                            <div class="character-option">
+                                <input type="radio" id="anica" name="character" value="Anica">
+                                <label for="anica" class="character-label">Anica</label>
+                            </div>
+                            <div class="character-option">
+                                <input type="radio" id="caelum" name="character" value="Caelum">
+                                <label for="caelum" class="character-label">Caelum</label>
+                            </div>
+                            <div class="character-option">
+                                <input type="radio" id="aurion" name="character" value="Aurion">
+                                <label for="aurion" class="character-label">Aurion</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Label -->
+                    <div class="form-group">
+                        <label for="templateLabel">Template Label</label>
+                        <select id="templateLabel" class="form-control">
+                            <option value="">Select template type...</option>
+                            <option value="news-page">News Page</option>
+                            <option value="blog-post">Blog Post</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="newsletter">Newsletter</option>
+                            <option value="landing-page">Landing Page</option>
+                            <option value="custom">Custom Template</option>
+                        </select>
+                        <div id="templatePreview" class="template-preview" style="display: none;">
+                            <h4>Template Preview</h4>
+                            <p>Template details will load here...</p>
+                        </div>
+                    </div>
+
+                    <!-- Prompt/Description -->
+                    <div class="form-group">
+                        <label for="prompt">Prompt/Description</label>
+                        <textarea id="prompt" class="form-control textarea-large" 
+                                placeholder="Provide detailed instructions for the AI. Include context, tone, target audience, key points to cover, and any specific requirements. The more details you provide, the better the results will be..."></textarea>
+                    </div>
+
+                    <!-- Schedule/Timestamp -->
+                    <div class="form-group">
+                        <label>Schedule/Timestamp</label>
+                        <div class="datetime-group">
+                            <div>
+                                <label for="scheduleDate">Date</label>
+                                <input type="date" id="scheduleDate" class="form-control">
+                            </div>
+                            <div>
+                                <label for="scheduleTime">Time</label>
+                                <input type="time" id="scheduleTime" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- AI Chat Section -->
+            <div class="ai-chat-section">
+                <h3 style="margin-bottom: 20px;">
+                    <span class="status-indicator status-connected"></span>
+                    AI Assistant Chat
+                </h3>
+                
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-message ai">
+                        <strong>AI Assistant:</strong> Hello! I'm ready to help you create and schedule your content. Fill out the form above and I'll assist with any questions or clarifications you need.
+                    </div>
+                </div>
+
+                <div class="chat-input-group">
+                    <input type="text" id="chatInput" class="form-control chat-input" 
+                           placeholder="Ask for clarification or make changes...">
+                    <button type="button" class="btn btn-primary" onclick="sendChatMessage()">Send</button>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="requestClarification()">Need Clarification</button>
+                    <button class="quick-btn" onclick="rescheduleContent()">Re-schedule</button>
+                    <button class="quick-btn" onclick="repurposeContent()">Repurpose Content</button>
+                    <button class="quick-btn" onclick="reviewContent()">Review Changes</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-section">
+                <div class="button-group">
+                    <a href="https://threadcommand.center/dashboard/admin" class="btn btn-secondary">
+                        ← Back to Platform
+                    </a>
+                    <button type="button" class="btn btn-success" onclick="saveToNotion()">
+                        💾 Save to Notion
+                    </button>
+                    <a href="https://threadcommand.center/dashboard/admin" class="btn btn-primary">
+                        Forward to Dashboard →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
